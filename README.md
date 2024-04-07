@@ -52,5 +52,5 @@ C:\mysys64\ucrt64\include
 
 
 
-## Made with ❤️ by [Ahmed Mohammed Wahba]([abowahbaz](https://github.com/abowahbaz))
+## Made with ❤️ by [abowahbaz](https://github.com/abowahbaz)
 
