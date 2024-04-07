@@ -3,12 +3,12 @@
 #define LEET
 #include <iostream>
 #include <vector>
-
+using namespace std;
 namespace leet
 {
-    std::string str;
+    string str;
     // General Function To Parse The Input
-    std::string parseInput(std::string &str)
+    string parseInput(string &str)
     {
         if (str.front() == '"' or str.front() == '[')
             str.erase(str.begin());
@@ -19,17 +19,17 @@ namespace leet
         return str;
     }
     // Functions To Read Single Variables
-    std::string readLine()
+    string readLine()
     {
-        std::getline(std::cin, str);
+        getline(cin, str);
         return parseInput(str);
     }
-    std::string readToken()
+    string readToken()
     {
-        std::cin >> str;
+        cin >> str;
         return parseInput(str);
     }
-    std::string readString()
+    string readString()
     {
         return readLine();
     }
@@ -39,16 +39,16 @@ namespace leet
     {
         readToken();
         T var;
-        std::stringstream ss(str);
+        stringstream ss(str);
         ss >> var;
         return var;
     };
     // Input Functions For Arrays
     template <typename T>
-    std::vector<T> toArray(std::string &input)
+    vector<T> toArray(string &input)
     {
-        std::stringstream ss(input);
-        std::vector<T> arr;
+        stringstream ss(input);
+        vector<T> arr;
         T var;
         while (ss >> var)
         {
@@ -57,22 +57,22 @@ namespace leet
         return arr;
     }
     template <typename T>
-    std::vector<T> readArray()
+    vector<T> readArray()
     {
         readLine();
         return toArray<T>(str);
     }
     template <typename T>
-    std::vector<std::vector<T>> read2D()
+    vector<vector<T>> read2D()
     {
         readLine();
         int i = 0, n = str.size(), j = 0;
-        std::vector<std::vector<T>> arr;
+        vector<vector<T>> arr;
         while (i < n)
         {
             if (str[i] == ' ' && str[i + 1] == '[' or i == n - 1)
             {
-                std::string tmp = str.substr(j, i - j + 1);
+                string tmp = str.substr(j, i - j + 1);
                 tmp = parseInput(tmp);
                 arr.push_back(toArray<T>(tmp));
                 ++i;
