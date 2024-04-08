@@ -8,15 +8,21 @@ namespace leet
 {
     string str;
     // General Function To Parse The Input
-    string parseInput(string &str)
+    string parseInput(string &input)
     {
-        if (str.front() == '"' or str.front() == '[')
-            str.erase(str.begin());
-        if (str.back() == '"' or str.back() == ']')
-            str.pop_back();
-        while (str.find(',') != -1)
-            str[str.find(',')] = ' ';
-        return str;
+        if (input.front() == '[' or input.front() == '"')
+        {
+            input.erase(input.begin());
+        }
+        if (input.back() == ']' or input.back() == '"')
+        {
+            input.pop_back();
+        }
+        while (input.find('"') != -1)
+            input.erase(input.begin() + input.find('"'));
+        while (input.find(',') != -1)
+            input[input.find(',')] = ' ';
+        return input;
     }
     // Functions To Read Single Variables
     string readLine()
@@ -72,7 +78,7 @@ namespace leet
         {
             if (str[i] == ' ' && str[i + 1] == '[' or i == n - 1)
             {
-                string tmp = str.substr(j, i - j + 1);
+                string tmp = str.substr(j, i - j);
                 tmp = parseInput(tmp);
                 arr.push_back(toArray<T>(tmp));
                 ++i;
