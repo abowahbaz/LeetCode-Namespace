@@ -31,8 +31,8 @@ using namespace std;
 using namespace leet;
 
 int main(){
-    vector<int> arr = readArray<int>(str);
-    vector<vector<string>> 2Darr = read2D<string>(str);
+    vector<int> arr = readArray<int>();
+    vector<vector<string>> 2Darr = read2D<string>();
     float x = readNumber<float>();
     long double y = readNumber<long double>();
     string s = readString();
