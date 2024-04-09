@@ -4,6 +4,18 @@
 #include <iostream>
 #include <vector>
 using namespace std;
+
+// Definition for singly-linked list.
+template <typename T>
+struct ListNode
+{
+    T val;
+    ListNode *next;
+    ListNode() : val(0), next(nullptr) {}
+    ListNode(T x) : val(x), next(nullptr) {}
+    ListNode(T x, ListNode *next) : val(x), next(next) {}
+};
+
 namespace leet
 {
     string str;
@@ -88,7 +100,28 @@ namespace leet
         }
         return arr;
     }
-
+    // Input Function For Linked Lists
+    template <typename T>
+    ListNode<T> *readList()
+    {
+        ListNode<T> *head = nullptr;
+        ListNode<T> *curr = nullptr;
+        vector<T> values = readArray<T>();
+        for (const T &val : values)
+        {
+            if (head == nullptr)
+            {
+                head = new ListNode<T>(val);
+                curr = head;
+            }
+            else
+            {
+                curr->next = new ListNode<T>(val);
+                curr = curr->next;
+            }
+        }
+        return head;
+    }
 }
 #endif // LEET
        // End of LeetCode.h
