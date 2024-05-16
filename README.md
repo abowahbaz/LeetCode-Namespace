@@ -21,6 +21,7 @@ That's why I decided to create a namespace for <b>C++</b> that would take the in
 | `template <typename T> vector <T> readArray()`            | Reads an array from the input stream and returns it as a vector of the given type.                   |
 | `template <typename T> vector<vector<T>> read2D()`        | Reads a two-dimensional array from the input stream and returns it as a 2D vector of the given type. |
 | `template <typename T> ListNode<T> *readList()`           | Reads a linked-list of the given type from the input stream and returns a pointer to its head        |
+| `template <typename T> TreeNode<T> *readTree()`           | Reads a binary tree of the given type from the input stream and returns a pointer to its root        |
 
 ## Usage Example 🚀
 

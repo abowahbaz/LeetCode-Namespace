@@ -16,6 +16,18 @@ struct ListNode
     ListNode(T x, ListNode *next) : val(x), next(next) {}
 };
 
+template <typename T>
+struct TreeNode
+{
+    T val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(T x, TreeNode *left, TreeNode *right) : val(x), left(left),
+                                                     right(right) {}
+};
+
 namespace leet
 {
     string str;
@@ -51,6 +63,15 @@ namespace leet
     {
         return readLine();
     }
+    template <typename T>
+    T stringToType(string str)
+    {
+        stringstream ss(str);
+        T var;
+        ss >> var;
+        return var;
+    }
+
     // Template Function To Read Numbers Of Any Type
     template <typename T>
     T readNumber()
@@ -122,6 +143,31 @@ namespace leet
         }
         return head;
     }
-}
+    // Input function for Binary Trees
+    template <typename T>
+    TreeNode<T> *readTree()
+    {
+        vector<string> values = readArray<string>();
+        if (values.empty())
+            return nullptr;
+
+        TreeNode<T> *root = new TreeNode<T>(stringToType<T>(values[0]));
+        vector<TreeNode<T> *> nodes = {root};
+        for (int i = 1; i < values.size(); i++)
+        {
+            if (values[i] != "null")
+            {
+                TreeNode<T> *node = new TreeNode<T>(stringToType<T>(values[i]));
+                nodes.push_back(node);
+                if (i % 2 == 1)
+                    nodes[(i - 1) / 2]->left = node;
+                else
+                    nodes[(i - 1) / 2]->right = node;
+            }
+        }
+        return root;
+    }
+
 #endif // LEET
        // End of LeetCode.h
+}
