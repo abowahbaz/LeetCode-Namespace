@@ -1,26 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
-
-//!! Don't forget to update this value
-// whether you are online or local
 #define LOCAL 1
-#if LOCAL
-#include <leetcode.h>
-#define TreeNode TreeNode<int>
-#define ListNode ListNode<int>
-using namespace leet;
-#endif
+//& Set LOCAL to 1 to run the code on local machine
 class Solution
 {
 public:
-    Solution() { ios_base::sync_with_stdio(false); }
+    Solution()
+    {
+        ios_base::sync_with_stdio(0);
+        cin.tie(0);
+        cout.tie(0);
+    }
 };
-// Comment from here to the end before submission ^ _ ^
-main()
+#if LOCAL
+#include <leetcode.h>
+using namespace leet;
+signed main()
 {
-    // Feel free to change file paths ^_^
-    freopen("input.txt", "r", stdin), freopen("output.txt", "w", stdout);
-    Solution sol = Solution();
-
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
     return 0;
 }
+#endif

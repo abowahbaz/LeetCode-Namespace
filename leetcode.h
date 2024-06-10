@@ -6,7 +6,7 @@
 using namespace std;
 
 // Definition for singly-linked list.
-template <typename T>
+template <typename T = int>
 struct ListNode
 {
     T val;
@@ -15,8 +15,7 @@ struct ListNode
     ListNode(T x) : val(x), next(nullptr) {}
     ListNode(T x, ListNode *next) : val(x), next(next) {}
 };
-
-template <typename T>
+template <typename T = int>
 struct TreeNode
 {
     T val;
@@ -24,9 +23,31 @@ struct TreeNode
     TreeNode *right;
     TreeNode() : val(0), left(nullptr), right(nullptr) {}
     TreeNode(T x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(T x, TreeNode *left, TreeNode *right) : val(x), left(left),
-                                                     right(right) {}
+    TreeNode(T x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
+
+namespace debug
+{
+    template <typename T>
+    void debugArray(vector<T> arr)
+    {
+        for (auto i : arr)
+            cout << i << " ";
+        cout << "\n";
+        return;
+    }
+    template <typename T>
+    void debug2D(vector<vector<T>> arr)
+    {
+        for (vector<T> row : arr)
+        {
+            debugArray(row);
+            cout << "\n";
+        }
+        cout << "\n";
+        return;
+    }
+}
 
 namespace leet
 {
@@ -144,7 +165,8 @@ namespace leet
         return head;
     }
     // Input function for Binary Trees
-    template <typename T>
+
+    template <typename T = int>
     TreeNode<T> *readTree()
     {
         vector<string> values = readArray<string>();
@@ -167,7 +189,8 @@ namespace leet
         }
         return root;
     }
-
-#endif // LEET
-       // End of LeetCode.h
+    // LEET
+    // End of LeetCode.h
 }
+
+#endif
