@@ -29,26 +29,25 @@ struct TreeNode
 namespace debug
 {
     template <typename T>
-    void debugArray(vector<T> arr)
+    void debugArray(vector<T> arr, ostream &out = cout)
     {
-        for (auto i : arr)
-            cout << i << " ";
-        cout << "\n";
+        for (T &i : arr)
+            out << i << " ";
+        out << "\n";
         return;
     }
     template <typename T>
-    void debug2D(vector<vector<T>> arr)
+    void debug2D(vector<vector<T>> arr, ostream &out = cout)
     {
         for (vector<T> row : arr)
         {
-            debugArray(row);
-            cout << "\n";
+            debugArray(row, out);
+            out << "\n";
         }
-        cout << "\n";
+        out << "\n";
         return;
     }
 }
-
 namespace leet
 {
     string str;
@@ -84,6 +83,7 @@ namespace leet
     {
         return readLine();
     }
+    //Function to convert a string to a given type
     template <typename T>
     T stringToType(string str)
     {
@@ -98,10 +98,7 @@ namespace leet
     T readNumber()
     {
         readToken();
-        T var;
-        stringstream ss(str);
-        ss >> var;
-        return var;
+        return stringToType<T>(str);
     };
     // Input Functions For Arrays
     template <typename T>
@@ -165,7 +162,6 @@ namespace leet
         return head;
     }
     // Input function for Binary Trees
-
     template <typename T = int>
     TreeNode<T> *readTree()
     {
@@ -174,7 +170,7 @@ namespace leet
             return nullptr;
 
         TreeNode<T> *root = new TreeNode<T>(stringToType<T>(values[0]));
-        vector<TreeNode<T> *> nodes = {root};
+        vector<TreeNode<T> *> nodes = { root };
         for (int i = 1; i < values.size(); i++)
         {
             if (values[i] != "null")
