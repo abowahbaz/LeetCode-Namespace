@@ -1,33 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define LOCAL 1
-//* Set LOCAL to 1 to run the code on local machine
 
-class Solution
-{
+class Solution {
     public:
-    Solution()
+    bool isPowerOfTwo(int n) // TODO : Code your solution here
     {
-        ios_base::sync_with_stdio(0);
-        cin.tie(0);
-        cout.tie(0);
+        if (n <= 0) return false;
+        return (n & (n - 1)) == 0;
     }
-    int exampleFunction(int a, int b);
 };
 
-#if LOCAL
-#include <leetcode.h>
+
+#if LOCAL // ! LOCAL should be defined in the compiler args 
+#include<leetcode.h>
 using namespace leet;
-using namespace debug;
-signed main()
+main()
 {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+    // TODO : Read input and call your function here
+
+
     return 0;
 }
 #endif
 
-int Solution::exampleFunction(int a, int b)
-{
-    return a + b;
-}
+
+static const int ios = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return 0;
+    }();
+
+
+
+
